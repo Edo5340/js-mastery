@@ -22,16 +22,18 @@
 
   <script>
     const calcButton = document.getElementById('button');
+    const bodyWeightInput = document.getElementById('weight');
+    const bodyHeightInput = document.getElementById('height');
+    const resultDisplay = document.getElementById('display');
+
 
     calcButton.addEventListener('click', function() {
-      const bodyWeightInput = document.getElementById('weight').value;
-      const bodyHeightInput = document.getElementById('height').value;
-      const poundsNum = Number(bodyWeightInput);
-      const inchesNum = Number(bodyHeightInput);
+      const poundsNum = Number(bodyWeightInput.value);
+      const inchesNum = Number(bodyHeightInput.value);
       const bmiResult = 703 * poundsNum / (inchesNum ** 2);
-      const resultDisplay = `With a body weight of ${poundsNum} and a height of ${inchesNum}, your BMI is ${bmiResult.toFixed(1)}.`;
+      const result = `With a body weight of ${poundsNum} and a height of ${inchesNum}, your BMI is ${bmiResult.toFixed(1)}.`;
       
-      document.getElementById('display').textContent = resultDisplay;
+      resultDisplay.textContent = result;
     })
   </script>
 </body>
