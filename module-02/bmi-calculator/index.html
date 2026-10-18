@@ -1,48 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BMI Calculator</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
 
-  <style>
-    .bmi-calculator {
-      display: flex;
-      flex-direction: column;
-    }
-  </style>
-</head>
+    <style>
+      .bmi-calculator {
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
 
-<body>
-  <article class="bmi-calculator">
-    <label for="weight">Enter Weight (lbs): </label>
-    <input type="number" id="weight" class="bmi-calculator__input" placeholder="Enter Weight in lbs">
-    <label for="height">Enter Height (inches): </label>
-    <input type="number" id="height" class="bmi-calculator__input" placeholder="Enter Height in inches">
-    <button id="button" class="bmi-calculator__button">Calculate</button>
-    <p id="display" class="bmi-calculator__result"></p>
-  </article>
+  <body>
+    <article class="bmi-calculator">
+      <label for="weight">Enter Weight (lbs): </label>
+      <input
+        type="number"
+        id="weight"
+        class="bmi-calculator__input"
+        placeholder="Enter Weight in lbs"
+      />
+      <label for="height">Enter Height (inches): </label>
+      <input
+        type="number"
+        id="height"
+        class="bmi-calculator__input"
+        placeholder="Enter Height in inches"
+      />
+      <button id="button" class="bmi-calculator__button">Calculate</button>
+      <p id="display" class="bmi-calculator__result"></p>
+    </article>
 
-  <script>
-    const calcButton = document.getElementById('button');
-    const bodyWeightInput = document.getElementById('weight');
-    const bodyHeightInput = document.getElementById('height');
-    const resultDisplay = document.getElementById('display');
-    const message = 'Please enter an accurate number!'
+    <script>
+      const calcButton = document.getElementById("button");
+      const bodyWeightInput = document.getElementById("weight");
+      const bodyHeightInput = document.getElementById("height");
+      const resultDisplay = document.getElementById("display");
+      const message = "Please enter an accurate number!";
 
-
-    calcButton.addEventListener('click', function() {
-      const poundsNum = Number(bodyWeightInput.value);
-      const inchesNum = Number(bodyHeightInput.value);
-      if (poundsNum < 1 || inchesNum < 1) {
-        resultDisplay.textContent = message;
-      } else {
-        const bmiResult = 703 * poundsNum / (inchesNum ** 2);
-        const result = `With a body weight of ${poundsNum} and a height of ${inchesNum}, your BMI is ${bmiResult.toFixed(1)}.`;
-      resultDisplay.textContent = result;
-    }
-  })
-  </script>
-</body>
-</html> 
-  
+      calcButton.addEventListener("click", function () {
+        const poundsNum = Number(bodyWeightInput.value);
+        const inchesNum = Number(bodyHeightInput.value);
+        if (poundsNum < 1 || inchesNum < 1) {
+          resultDisplay.textContent = message;
+        } else {
+          const bmiResult = 703 * poundsNum / (inchesNum ** 2);
+          const result = `With a body weight of ${poundsNum} and a height of ${inchesNum}, your BMI is ${bmiResult.toFixed(1)}.`;
+          resultDisplay.textContent = result;
+        }
+      });
+    </script>
+  </body>
+</html>
