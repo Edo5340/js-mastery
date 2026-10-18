@@ -6,7 +6,10 @@
   <title>BMI Calculator</title>
 
   <style>
-
+    .bmi-calculator {
+      display: flex;
+      flex-direction: column;
+    }
   </style>
 </head>
 
@@ -25,16 +28,21 @@
     const bodyWeightInput = document.getElementById('weight');
     const bodyHeightInput = document.getElementById('height');
     const resultDisplay = document.getElementById('display');
+    const message = 'Please enter an accurate number!'
 
 
     calcButton.addEventListener('click', function() {
       const poundsNum = Number(bodyWeightInput.value);
       const inchesNum = Number(bodyHeightInput.value);
-      const bmiResult = 703 * poundsNum / (inchesNum ** 2);
-      const result = `With a body weight of ${poundsNum} and a height of ${inchesNum}, your BMI is ${bmiResult.toFixed(1)}.`;
-      
+      if (poundsNum < 1 || inchesNum < 1) {
+        resultDisplay.textContent = message;
+      } else {
+        const bmiResult = 703 * poundsNum / (inchesNum ** 2);
+        const result = `With a body weight of ${poundsNum} and a height of ${inchesNum}, your BMI is ${bmiResult.toFixed(1)}.`;
       resultDisplay.textContent = result;
-    })
+    }
+  })
   </script>
 </body>
-</html>
+</html> 
+  
