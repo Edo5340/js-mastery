@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+  </style>
+
+</head>
+<body>
+  <article>
+    <p id="blades">Wiper blades: </p>
+    <p id="coolant">Coolant: </p>
+    <p id="filter">Air filter: </p>
+    <p id="sum">Total: </p>
+    <button id="button">Price</button>
+  </article>
+
+  <script>
+    const priceBtn = document.getElementById('button');
+
+    priceBtn.addEventListener('click', function() {
+      const wiperBlades = 24.99;
+      document.getElementById('blades').textContent = wiperBlades
+      const engineCoolant = 15.50;
+      document.getElementById('coolant').textContent = engineCoolant
+      const airFilter = 12.00;
+      document.getElementById('filter').textContent = airFilter
+      const result = (wiperBlades + engineCoolant + airFilter);
+      const resultDisplay = result;
+
+      document.getElementById('sum').textContent = resultDisplay.toFixed(2);
+    })
+  </script>
+</body>
+</html>
