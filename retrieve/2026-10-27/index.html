@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calc Retrieve</title>
+</head>
+<body>
+  <article>
+    <div class="bmi-calculator">
+      <label for="weight">Enter lbs:</label>
+      <input type="number" id="weight">
+      <label for="height">Enter inches:</label>
+      <input type="number" id="height">
+      <button id="calc">Calculate</button>
+      <p id="display"></p>
+    </div>
+  </article>
+
+  <script>
+    const button = document.getElementById('calc');
+    const message = 'Please enter a valid number!'
+    const resultDisplay = document.getElementById('display');
+    
+
+    button.addEventListener('click', function() {
+      if (pounds === '' || pounds === isNaN()) {
+        resultDisplay.textContent = message;
+      } else if (inches === '' || inches === isNaN()) {
+        resultDisplay.textContent = message;
+      } else {
+        const pounds = document.getElementById('weight').value;
+        const inches = document.getElementById('height').value;
+        const weightNum = Number(pounds);
+        const heightNum = Number(height);
+        const bmiResult = 703 * weightNum / (heightNum **);
+        const message2 = `If your weight is ${weightNum} lbs, and your height is ${heightNum} inches, your BMI is ${bmiResult}.`
+        resultDisplay.textContent = message2;
+      }
+        
+      
+    })
+  </script>
+</body>
+</html>
