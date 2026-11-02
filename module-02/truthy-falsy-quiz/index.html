@@ -6,43 +6,168 @@
     <title>Truthy-Falsy-Quiz</title>
 
     <style>
-     
       .truthy-falsy-quiz__feedback-spot--correct {
         color: green;
       }
       .truthy-falsy-quiz__feedback-spot--incorrect {
         color: red;
       }
-
     </style>
   </head>
   <body>
     <article class="truthy-falsy-quiz">
       <div class="truthy-falsy-quiz__question-container">
         <p class="truthy-falsy-quiz__question">Is 0 Truthy or Falsy? :</p>
-        <p id="quizboxzerofeedback" class="truthy-falsy-quiz__feedback-spot"></p>
-        <button id="quizboxzerobuttontruthy" class="truthy-falsy-quiz__button">Truthy</button>
-        <button id="quizboxzerobuttonfalsy" class="truthy-falsy-quiz__button">Falsy</button>
+        <p
+          id="quizboxzerofeedback"
+          class="truthy-falsy-quiz__feedback-spot"
+        ></p>
+        <button id="quizboxzerobuttontruthy" class="truthy-falsy-quiz__button">
+          Truthy
+        </button>
+        <button id="quizboxzerobuttonfalsy" class="truthy-falsy-quiz__button">
+          Falsy
+        </button>
       </div>
       <div class="truthy-falsy-quiz__question-container">
         <p class="truthy-falsy-quiz__question">Is "0" Truthy or Falsy? :</p>
-        <p id="quizboxzerostringfeedback" class="truthy-falsy-quiz__feedback-spot"></p>
-        <button id="quizboxzerostringbuttontruthy" class="truthy-falsy-quiz__button">Truthy</button>
-        <button id="quizboxzerostringbuttonfalsy" class="truthy-falsy-quiz__button">Falsy</button>
+        <p
+          id="quizboxzerostringfeedback"
+          class="truthy-falsy-quiz__feedback-spot"
+        ></p>
+        <button
+          id="quizboxzerostringbuttontruthy"
+          class="truthy-falsy-quiz__button"
+        >
+          Truthy
+        </button>
+        <button
+          id="quizboxzerostringbuttonfalsy"
+          class="truthy-falsy-quiz__button"
+        >
+          Falsy
+        </button>
       </div>
       <div class="truthy-falsy-quiz__question-container">
-        <p class="truthy-falsy-quiz__question">Is "" (empty string) Truthy or Falsy? :</p>
-        <p id="quizboxemptystringfeedback" class="truthy-falsy-quiz__feedback-spot"></p>
-        <button id="quizboxemptystringbuttontruthy" class="truthy-falsy-quiz__button">Truthy</button>
-        <button id="quizboxemptystringbuttonfalsy" class="truthy-falsy-quiz__button">Falsy</button>
+        <p class="truthy-falsy-quiz__question">
+          Is "" (empty string) Truthy or Falsy? :
+        </p>
+        <p
+          id="quizboxemptystringfeedback"
+          class="truthy-falsy-quiz__feedback-spot"
+        ></p>
+        <button
+          id="quizboxemptystringbuttontruthy"
+          class="truthy-falsy-quiz__button"
+        >
+          Truthy
+        </button>
+        <button
+          id="quizboxemptystringbuttonfalsy"
+          class="truthy-falsy-quiz__button"
+        >
+          Falsy
+        </button>
       </div>
       <div class="truthy-falsy-quiz__question-container">
         <p class="truthy-falsy-quiz__question">Is "false" Truthy or Falsy? :</p>
-        <p id="quizboxfalsestringfeedback" class="truthy-falsy-quiz__feedback-spot"></p>
-        <button id="quizboxfalsestringbuttontruthy" class="truthy-falsy-quiz__button">Truthy</button>
-        <button id="quizboxfalsestringbuttonfalsy" class="truthy-falsy-quiz__button">Falsy</button>
+        <p
+          id="quizboxfalsestringfeedback"
+          class="truthy-falsy-quiz__feedback-spot"
+        ></p>
+        <button
+          id="quizboxfalsestringbuttontruthy"
+          class="truthy-falsy-quiz__button"
+        >
+          Truthy
+        </button>
+        <button
+          id="quizboxfalsestringbuttonfalsy"
+          class="truthy-falsy-quiz__button"
+        >
+          Falsy
+        </button>
       </div>
       <p class="truthy-falsy-quiz__score-display" id="quizscore"></p>
     </article>
+
+    <script>
+      const zeroFeedback = document.getElementById("quizboxzerofeedback");
+      const zeroStrFeedback = document.getElementById(
+        "quizboxzerostringfeedback",
+      );
+      const emptyStrFeedback = document.getElementById(
+        "quizboxemptystringfeedback",
+      );
+      const falseStrFeedback = document.getElementById(
+        "quizboxfalsestringfeedback",
+      );
+      const scoreDisplay = document.getElementById("quizscore");
+      const btnZeroTruthy = document.getElementById("quizboxzerobuttontruthy");
+      const btnZeroFalsy = document.getElementById("quizboxzerobuttonfalsy");
+      const btnZeroStrTruthy = document.getElementById(
+        "quizboxzerostringbuttontruthy",
+      );
+      const btnZeroStrFalsy = document.getElementById(
+        "quizboxzerostringbuttonfalsy",
+      );
+      const btnEmptyStrTruthy = document.getElementById(
+        "quizboxemptystringbuttontruthy",
+      );
+      const btnEmptyStrFalsy = document.getElementById(
+        "quizboxemptystringbuttonfalsy",
+      );
+      const btnFalseStrTruthy = document.getElementById(
+        "quizboxfalsestringbuttontruthy",
+      );
+      const btnFalseStrFalsy = document.getElementById(
+        "quizboxfalsestringbuttonfalsy",
+      );
+      const zero = 0;
+      const zeroStr = "0";
+      const emptyStr = "";
+      const falseStr = "false";
+      const zeroAnswer = zero ? "Truthy" : "Falsy";
+      const zeroStrAnswer = zeroStr ? "Truthy" : "Falsy";
+      const emptyStrAnswer = emptyStr ? "Truthy" : "Falsy";
+      const falseStrAnswer = falseStr ? "Truthy" : "Falsy";
+      let scoreCount = 0;
+
+      btnZeroTruthy.addEventListener("click", function () {
+        zeroFeedback.textContent =
+          zeroAnswer === "Truthy" ? "Correct!" : "Incorrect";
+        zeroFeedback.classList.remove(
+          "truthy-falsy-quiz__feedback-spot--incorrect",
+        );
+        zeroFeedback.classList.remove(
+          "truthy-falsy-quiz__feedback-spot--correct",
+        );
+        zeroFeedback.classList.add(
+          zeroAnswer === "Truthy"
+            ? "truthy-falsy-quiz__feedback-spot--correct"
+            : "truthy-falsy-quiz__feedback-spot--incorrect",
+        );
+        scoreCount += zeroAnswer === "Truthy" ? 1 : 0;
+        scoreDisplay.textContent = `Current score: ${scoreCount}`;
+        });
+
+      btnZeroFalsy.addEventListener("click", function () {
+        zeroFeedback.textContent =
+          zeroAnswer === "Falsy" ? "Correct!" : "Incorrect";
+        zeroFeedback.classList.remove(
+          "truthy-falsy-quiz__feedback-spot--incorrect",
+        );
+        zeroFeedback.classList.remove(
+          "truthy-falsy-quiz__feedback-spot--correct",
+        );
+        zeroFeedback.classList.add(
+          zeroAnswer === "Falsy"
+            ? "truthy-falsy-quiz__feedback-spot--correct"
+            : "truthy-falsy-quiz__feedback-spot--incorrect",
+        );
+        scoreCount += zeroAnswer === "Falsy" ? 1 : 0;
+        scoreDisplay.textContent = `Current score: ${scoreCount}`;
+      });
+    </script>
   </body>
 </html>
