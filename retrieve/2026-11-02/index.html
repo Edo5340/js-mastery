@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temp Converter Retrieve</title>
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <article id="temp-converter">
+    <label for="temp-box">Enter Temperature:</label>
+    <input type="number" id="temp-box">
+    <button class="temp-converter__button" id="fahr-btn">F to C</button>
+    <button class="temp-converter__button" id="cel-btn">C to F</button>
+    <p class="temp-converter__message-display" id="message"></p>
+  </article>
+  
+
+  <script>
+    const fahrButton = document.getElementById('fahr-btn');
+    const celButton = document.getElementById('cel-btn');
+    const tempInput = document.getElementById('temp-box');
+    const fahrToCelDisplay = `${fahrNum}°F converts to ${celNum}°C.`
+    const celToFahrDisplay = `${celNum}°C converts to ${fahrNum}°F.`
+    
+
+    fahrButton.addEventListener('click', function(){
+      const fahrNum = Number(tempInput.value);
+      const fahrToCel = (fahrNum - 32) * 5/9;
+      fahrToCelDisplay.textContent 
+      
+    })
+  </script>
+</body>
+</html>
+
+	
+<!-- (32°F − 32) × 5/9 = 0°C -->
