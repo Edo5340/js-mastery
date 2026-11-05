@@ -204,6 +204,42 @@
         scoreCount += zeroStrAnswer === "Falsy" ? 1 : 0;
         scoreDisplay.textContent = `Current score: ${scoreCount}`;
       });
+
+      btnEmptyStrTruthy.addEventListener("click", function () {
+        emptyStrFeedback.textContent =
+          emptyStrAnswer === "Truthy" ? "Correct!" : "Incorrect";
+        emptyStrFeedback.classList.remove(
+          "truthy-falsy-quiz__feedback-spot--incorrect",
+        );
+        emptyStrFeedback.classList.remove(
+          "truthy-falsy-quiz__feedback-spot--correct",
+        );
+        emptyStrFeedback.classList.add(
+          emptyStrAnswer === "Truthy"
+            ? "truthy-falsy-quiz__feedback-spot--correct"
+            : "truthy-falsy-quiz__feedback-spot--incorrect",
+        );
+        scoreCount += emptyStrAnswer === "Truthy" ? 1 : 0;
+        scoreDisplay.textContent = `Current score: ${scoreCount}`;
+      });
+
+      btnEmptyStrFalsy.addEventListener("click", function () {
+        emptyStrFeedback.textContent =
+          emptyStrAnswer === "Falsy" ? "Correct!" : "Incorrect";
+        emptyStrFeedback.classList.remove(
+          "truthy-falsy-quiz__feedback-spot--incorrect",
+        );
+        emptyStrFeedback.classList.remove(
+          "truthy-falsy-quiz__feedback-spot--correct",
+        );
+        emptyStrFeedback.classList.add(
+          emptyStrAnswer === "Falsy"
+            ? "truthy-falsy-quiz__feedback-spot--correct"
+            : "truthy-falsy-quiz__feedback-spot--incorrect",
+        );
+        scoreCount += emptyStrAnswer === "Falsy" ? 1 : 0;
+        scoreDisplay.textContent = `Current score: ${scoreCount}`;
+      });
     </script>
   </body>
 </html>
