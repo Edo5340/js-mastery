@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Labor Estimator Retrieve</title>
+</head>
+<body>
+  <label for=""></label>
+  <input type="number">
+  <label for=""></label>
+  <input type="number">
+  <label for=""></label>
+  <input type="number">
+  <button>Get Estimate</button>
+  
+  <script>
+    const laborNum = document.getElementById('labor-inp');
+    const hourlyNum = document.getElementById('hourly-inp');
+    const partsNum = document.getElementById('parts-inp');
+    const laborDisplay = document.getElementById('labor-disp');
+    const taxDisplay = document.getElementById('tax-disp');
+    const partsDisplay = document.getElementById('parts-disp');
+    const estimateButton = document.getElementById('estimate-btn');
+    const messageDisplay = document.getElementById('message-disp');
+    const taxRate = 0.0775;
+    const validationMessage = 'Please enter a valid number!';
+
+    estimateButton.addEventListener('click', function() {
+      const laborConvNum = Number(laborNum.value);
+      const hourlyConvNum = Number(hourlyNum.value);
+      const partsConvNum = Number(partsNum.value);
+      
+      if (isNaN(laborConvNum) || laborConvNum < 0.1 || hourlyConvNum <= 0 || isNan(hourlyConvNum) || isNaN(partsConvNum) || partsNum.value === '' || partsNum === '0') {
+        validationMessage.textContent = messageDisplay;
+      } else {
+        const finalTotal = laborConvNum * hourlyConvNum + (partsConvNum * taxRate);
+      }
+      
+    })
+  </script>
+</body>
+</html>
