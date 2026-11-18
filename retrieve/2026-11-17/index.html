@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <article class="shop-labor-estimator">
+    <label for="labor-inp">Labor Hours: </label>
+    <input type="number" id="labor-inp">
+    <label for="hourly-inp">Hourly Rate: </label>
+    <input type="number" id="hourly-inp">
+    <label for="parts-inp">Parts: </label>
+    <input type="number" id="labor-inp">
+    <button id="calc-btn">Calculate</button>
+    <p id="labor-disp"></p>
+    <p id="parts-disp"></p>
+    <p id="tax-disp"></p>
+    <p id="total-disp"></p>
+    <p id="validation-disp"></p>
+  </article>
+  
+
+  <script>
+    const laborInput = document.getElementById('labor-inp');
+    const hourlyInput = document.getElementById('hourly-inp');
+    const partsInput = document.getElementById('parts-inp');
+    const calcButton = document.getElementById('calc-btn');
+    const laborDisplay = document.getElementById('labor-disp');
+    const partsDisplay = document.getElementById('parts-disp');
+    const taxDisplay = document.getElementById('tax-disp');
+    const totalDisplay = document.getElementById('total-disp');
+    const validationDisplay = document.getElementById('validation-disp');
+    const taxRate = 0.0775;
+    const validationMessage = 'Please enter a valid number!';
+
+    calcButton.addEventListener('click', function() {
+      const laborConvNum = Number(laborInput.value);
+      const hourlyConvNum = Number(hourlyInput.value);
+      const partsConvNum = Number(partsInput.value);
+
+      if (isNaN(laborConvNum) || laborConvNum < 1 || isNaN(hourlyConvNum) || hourlyConvNum < 0.1 || isNaN(partsConvNum) || partsInput.value === '' || partsConvNum < 0) {
+        validationDisplay.textContent = validationMessage;
+      } else {
+        const finalTotal = laborConvNum * hourlyConvNum + (partsConvNum * taxRate);
+        laborDisplay.textContent = `Labor Hours: ${laborConvNum}`;
+        partsDisplay.textContent = `Parts: ${partsConvNum}`;
+        taxDisplay.textContent = `Tax: $${taxRate}`;
+        totalDisplay.textContent = `$${finalTotal.toFixed(2)}`
+      }
+    })
+  </script>
+</body>
+</html>
