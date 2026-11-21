@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+  </style>
+</head>
+<body>
+  <label for="labor" id="labor-inp">Labor Hours: </label>
+  <input type="number" id="labor-inp">
+  <label for="hourly" id="hourly-inp">Hourly Rate: </label>
+  <input type="number" id="hourly-inp">
+  <label for="parts" id="parts-inp">Parts Cost: </label>
+  <input type="number" id="parts-inp">
+  <button id="calc-btn">Calculate</button>
+  <p id="labor-disp"></p>
+  <p id="parts-disp"></p>
+  <p id="tax-disp"></p>
+  <p id="total-disp"></p>
+  <p id="validation-disp"></p>
+  
+
+  <script>
+    const laborInput = document.getElementById('labor-inp');
+    const hourlyInput = document.getElementById('hourly-disp');
+    const partsInput = document.getElementById('parts-inp');
+    const laborDisplay = document.getElementById('labor-disp');
+    const hourlyDisplay = document.getElementById('hourly-disp');
+    const partsDisplay = document.getElementById('parts-disp');
+    const taxDisplay = document.getElementById('tax-disp');
+    const totalDisplay = document.getElementById('total-disp');
+    const validationDisplay = document.getElementById('validation-disp');
+    const calcButton = document.getElementById('calc-btn');
+    const taxRate = 0.0775;
+
+    calcButton.addEventListener('click', function() {
+      const laborConvNum = Number(laborInput.value);
+      const hourlyConvNum = Number(hourlyInput.value);
+      const partsConvNum = Number(partsInput.value);
+      const validationMessage = 'Please enter a valid number!';
+
+      if (isNaN(laborConvNum) || laborConvNum < 0.1 || isNaN(hourlyConvNum) || hourlyConvNum < 1 || isNaN(partsConvNum) || partsInput.value === '' || partsConvNum < 0) {
+        validationDisplay.textContent = validationMessage;
+      } else {
+        const finalTotal = laborConvNum * hourlyConvNum + partsConvNum + (partsConvNum * taxRate);
+      }
+    })
+  </script>
+</body>
+</html>
