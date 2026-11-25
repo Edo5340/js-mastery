@@ -10,11 +10,11 @@
   </style>
 </head>
 <body>
-  <label for="labor" id="labor-inp">Labor Hours: </label>
+  <label for="labor-inp">Labor Hours: </label>
   <input type="number" id="labor-inp">
-  <label for="hourly" id="hourly-inp">Hourly Rate: </label>
+  <label for="hourly-inp">Hourly Rate: </label>
   <input type="number" id="hourly-inp">
-  <label for="parts" id="parts-inp">Parts Cost: </label>
+  <label for="parts-inp">Parts Cost: </label>
   <input type="number" id="parts-inp">
   <button id="calc-btn">Calculate</button>
   <p id="labor-disp"></p>
@@ -26,10 +26,9 @@
 
   <script>
     const laborInput = document.getElementById('labor-inp');
-    const hourlyInput = document.getElementById('hourly-disp');
+    const hourlyInput = document.getElementById('hourly-inp');
     const partsInput = document.getElementById('parts-inp');
     const laborDisplay = document.getElementById('labor-disp');
-    const hourlyDisplay = document.getElementById('hourly-disp');
     const partsDisplay = document.getElementById('parts-disp');
     const taxDisplay = document.getElementById('tax-disp');
     const totalDisplay = document.getElementById('total-disp');
@@ -46,7 +45,11 @@
       if (isNaN(laborConvNum) || laborConvNum < 0.1 || isNaN(hourlyConvNum) || hourlyConvNum < 1 || isNaN(partsConvNum) || partsInput.value === '' || partsConvNum < 0) {
         validationDisplay.textContent = validationMessage;
       } else {
+        laborDisplay.textContent = '';
+        partsDisplay.textContent = '';
         const finalTotal = laborConvNum * hourlyConvNum + partsConvNum + (partsConvNum * taxRate);
+        laborDisplay.textContent = `Labor: $${laborConvNum}`
+        partsDisplay.textContent = `Parts: $${partsConvNum}`
       }
     })
   </script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <article>
+    <label for="earnings-inp">Earnings:</label>
+    <input type="number" id="earnings-inp">
+    <label for="fee-percent-inp">Fee Percentage:</label>
+    <input type="number" id="fee-percent-inp">
+    <label for="fuel-inp">Fuel:</label>
+    <input type="number" id="fuel-inp">
+    <button id="calc-btn">Calculate</button>
+    <p id="earnings-disp"></p>
+    <p id="fee-dollars-disp"></p>
+    <p id="net-profit-disp"></p>
+    <p id="profit-percent-disp"></p>
+    <p id="total-profit-disp"></p>
+    <p id="validation-disp"></p>
+  </article>
+  
+
+  <script>
+    const earningsInput = document.getElementById('earnings-inp');
+    const feePercentInput = document.getElementById('fee-percent-inp');
+    const fuelInput = document.getElementById('fuel-inp');
+    const earningsDisplay = document.getElementById('earnings-disp');
+    const feeDollarsDisplay = document.getElementById('fee-dollars-disp');
+    const netProfitDisplay = document.getElementById('net-profit-disp');
+    const profitPercentDisplay = document.getElementById('profit-percent-disp');
+    const totalNetProfitDisplay = document.getElementById('total-profit-disp');
+    const validationDisplay = document.getElementById('validation-disp');
+    const calcButton = document.getElementById('calc-btn');
+    let tripCount = 0;
+    let totalProfit = 0;
+    const validationMessage = 'Please enter a valid number!'
+    
+    calcButton.addEventListener('click', function() {
+      const earningsConvNum = Number(earningsInput.value);
+      const feePercentConvNum = Number(feePercentInput.value);
+      const fuelConvNum = Number(fuelInput.value);
+      if (isNaN(earningsConvNum) || earningsConvNum < 0.01 || isNaN(feePercentConvNum) || feePercentConvNum < 0.01 || isNaN(fuelConvNum) || fuelInput.value === '') {
+        validationDisplay.textContent = validationMessage;
+      } else {
+        
+      }
+    })
+  </script>
+</body>
+</html>
